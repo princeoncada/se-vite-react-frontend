@@ -10,7 +10,6 @@ function Watchlist() {
     const [stockData, setStockData] = useState([]);
 
     function loadUserStocks() {
-        console.log(import.meta.env.VITE_THIS)
         axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/stock`, header_config)
             .then((response) => {
                 setStockData(response.data)

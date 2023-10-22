@@ -6,6 +6,14 @@ function Authenticate() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        const jwtTokenCookie = document.cookie.split(";").find(cookie => cookie.startsWith("jwtToken="));
+        if(jwtTokenCookie) {
+            const jwtToken = jwtTokenCookie.split("=")[1];
+            console.log('jwtToken', jwtToken)
+        }else {
+            console.log("no jwtToken cookie found")
+        }
+
         if(Cookies.get("jwtToken")!==undefined) {
             sessionStorage.setItem("auth", "true")
         }
