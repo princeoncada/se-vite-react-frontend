@@ -1,0 +1,42 @@
+/* Style for the container of the table */
+.table-container {
+    width: 100%; /* Ensure the container takes up the full width of its parent */
+    height: 100%; /* Ensure the container takes up the full height of its parent */
+    overflow: auto; /* Add scrollbars if the content overflows */
+}
+
+/* Style for the table */
+table {
+    width: 100%; /* Make the table occupy the full width of its container */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+/* Style for table headers */
+th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for table cells */
+td {
+    border: 1px solid #ddd; /* Add borders to cells */
+    padding: 8px;
+}
+
+/* Style for even rows (alternating row colors) */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for table header row */
+thead th {
+    background-color: #333; /* Dark gray background for header row */
+    color: white;
+}
+
+/* Style for table footer row */
+tfoot th {
+    background-color: #333; /* Dark gray background for footer row */
+    color: white;
+}

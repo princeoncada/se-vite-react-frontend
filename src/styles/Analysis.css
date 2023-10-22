@@ -1,0 +1,146 @@
+.stock-view {
+  display: flex;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  width: 94%;
+  min-height: 90%;
+}
+
+.stock-view-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.stock-view-container .first {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+.stock-view-container .first .stock-summary {
+  flex: 1;
+  padding: 10px;
+}
+.stock-view-container .first .stock-financial {
+  display: flex;
+  flex-direction: column;
+  flex: 8;
+}
+.stock-view-container .first .stock-financial .table {
+  flex: 1;
+}
+.stock-view-container .first .btn-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.stock-view-container .second {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.stock-view-container .second h2 {
+  padding-left: 4px;
+}
+.stock-view-container .second .stock-details {
+  padding: 10px;
+}
+.stock-view-container .second .stock-statistics {
+  flex: 1;
+  padding: 10px;
+}
+
+.financial-navigation {
+  display: flex;
+  flex-direction: row;
+  background-color: #f5f5f5;
+}
+.financial-navigation .item {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.financial-navigation .item:hover {
+  background-color: #ddd;
+}
+.financial-navigation .item.clicked {
+  background-color: #ddd;
+}
+
+.stock-summary {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+}
+.stock-summary .contents {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 20px;
+}
+.stock-summary .contents .stock-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+.stock-summary .contents .stock-identity .stock-name {
+  display: flex;
+  align-items: end;
+  flex: 1;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.stock-summary .contents .stock-identity .stock-ticker {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.stock-summary .contents .stock-price {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex: 0.74;
+  font-size: 4rem;
+  font-weight: 600;
+}
+.stock-summary .contents .stock-score {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0.5;
+  /* Style for the score value */
+  /* Style for the score label */
+}
+.stock-summary .contents .stock-score .score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stock-summary .contents .stock-score .score-value,
+.stock-summary .contents .stock-score .score-div,
+.stock-summary .contents .stock-score .score-growth {
+  color: #fff;
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.stock-summary .contents .stock-score .score-label {
+  padding-top: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=Analysis.css.map */
