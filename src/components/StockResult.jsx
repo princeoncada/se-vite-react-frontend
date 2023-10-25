@@ -6,16 +6,14 @@ import "../styles/StockResult.css";
 
 const DesktopCustomButton = styled(Button)({
     marginLeft: "1rem",
-    height: "4.13rem",
     maxWidth: "45px",
     minWidth: "45px",
 });
 
 const MobileCustomButton = styled(Button)({
     marginLeft: "1rem",
-    height: "118.9px",
     maxWidth: "45px",
-    minWidth: "45px",
+    minWidth: "45px"
 });
 
 function StockResult(x) {
@@ -34,7 +32,7 @@ function StockResult(x) {
         <>
             <div className="container">
                 <h2>{x.header}</h2>
-                <ul className="search-results">
+                <div className="search-results">
                     {x.stockData.map((result) => (
                         <div key={result.id} className="result-container">
                             <div onClick={() => {
@@ -70,26 +68,15 @@ function StockResult(x) {
                                         variant="contained"
                                         color="error"
                                         onClick={() => { handleRemoveStock(result["ticker"]) }}
+                                        sx={{ height: "74%", margin: "12px 0 0 12px" }}
                                     >
                                         <VisibilityOffIcon />
                                     </DesktopCustomButton>
                                 </div>
                             }
-
-                            {
-                                watchlist && <div className="btn-container mobile">
-                                    <MobileCustomButton
-                                        variant="contained"
-                                        color="error"
-                                        onClick={() => { handleRemoveStock(result["ticker"]) }}
-                                    >
-                                        <VisibilityOffIcon />
-                                    </MobileCustomButton>
-                                </div>
-                            }
                         </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </>
     )

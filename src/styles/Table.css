@@ -3,6 +3,7 @@ table {
   width: 100%; /* Make the table occupy the full width of its container */
   border-collapse: collapse; /* Collapse table borders */
   overflow-wrap: anywhere;
+  scrollbar-gutter: stable;
 }
 
 /* Style for table headers */
@@ -43,6 +44,13 @@ tfoot th {
 @media screen and (max-width: 769px) {
   .desktop {
     display: none;
+  }
+  .table {
+    font-size: 10px;
+  }
+  .financial-value {
+    font-size: 8px;
+    font-weight: 600;
   }
 }
 

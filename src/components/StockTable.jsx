@@ -28,7 +28,7 @@ function StockTable(x) {
                                     <th>{key}</th>
                                     {value.map((value, index) => {
                                         return (
-                                            <td key={index}>{value}</td>
+                                            <td className="financial-value" key={index}>{value}</td>
                                         )
                                     })}
                                 </tr>
