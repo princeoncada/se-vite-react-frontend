@@ -1,4 +1,4 @@
-import Table from "./Table.jsx";
+import Table from "./StockTable.jsx";
 import List from "./List.jsx";
 import {useEffect, useState} from "react";
 import {Button, styled} from "@mui/material";
@@ -120,7 +120,7 @@ function AnalysisView(x) {
                         }
                     </div>
 
-                    <div className={`stock-financial`}>
+                    <div className="stock-financial">
                         <div className={`financial-navigation`}>
 
                             <div

@@ -10,62 +10,77 @@ import header_config from "../service/HeaderConfig.js";
 const filters_config = {
     trailing_pe: {
         label: "P/E Ratio",
+        mobile_label: "P/E",
         state: "trailingPe",
     },
     price_sales: {
         label: "Price/Sales",
+        mobile_label: "P/S",
         state: "priceSales",
     },
     price_book: {
         label: "Price/Book",
+        mobile_label: "P/B",
         state: "priceBook",
     },
     enterprise_value_ebitda: {
         label: "Enterprise Value/EBITDA",
+        mobile_label: "EV/EBITDA",
         state: "enterpriseValueEbitda",
     },
     return_on_equity: {
         label: "Return on Equity",
+        mobile_label: "ROE",
         state: "returnOnEquity",
     },
     quarterly_revenue_growth: {
         label: "Quarterly Revenue Growth",
+        mobile_label: "QRG",
         state: "quarterlyRevenueGrowth",
     },
     quarterly_earnings_growth: {
         label: "Quarterly Earnings Growth",
+        mobile_label: "QEG",
         state: "quarterlyEarningsGrowth",
     },
     total_debt_equity: {
         label: "Total Debt/Equity",
+        mobile_label: "TD/E",
         state: "totalDebtEquity",
     },
     forward_annual_dividend_yield: {
         label: "Forward Annual Dividend Yield",
+        mobile_label: "FADY",
         state: "forwardAnnualDividendYield",
     },
     trailing_annual_dividend_yield: {
         label: "Trailing Annual Dividend Yield",
+        mobile_label: "TADY",
         state: "trailingAnnualDividendYield",
     },
     payout_ratio: {
         label: "Payout Ratio",
+        mobile_label: "PR",
         state: "payoutRatio",
     },
     interest_coverage_ratio: {
         label: "Interest Coverage Ratio",
+        mobile_label: "ICR",
         state: "interestCoverageRatio",
     },
     operating_cash_flow_net_income_ratio: {
         label: "Operating Cash Flow/Net Income",
+        mobile_label: "OCF/NI",
         state: "operatingCashFlowToNetIncome",
     },
     free_cash_flow_conversion: {
         label: "Free Cash Flow Conversion",
+        mobile_label: "FCF-C",
         state: "freeCashFlowConversion",
     },
     debt_coverage_ratio: {
         label: "Debt Coverage Ratio",
+        mobile_label: "DCR",
         state: "debtCoverageRatio",
     }
 }
@@ -164,12 +179,13 @@ function Screen() {
                         isLoading ? <div>Loading...</div> :
                             <div className="stock-screen">
                             <h2>Stock Screening</h2>
-                            <div>
+                            <div className="filters">
                                 {
                                     Object.keys(filter).map(key => {
                                         return <Filter
                                             key={key}
-                                            element={filter[key].label}
+                                            label={filter[key].label}
+                                            mobile_label={filters_config[key].mobile_label}
                                             value={filter[key].value}
                                             changeValue={(event, value) => handleSliderChange(key, value)}
                                             checked={!checkboxData[key].checked}
@@ -181,13 +197,15 @@ function Screen() {
                                     })
                                 }
                             </div>
-                            <button onClick={handleSubmit}>Search</button>
+                            <div className="screen-button-container">
+                                <button className="screen-button" onClick={handleSubmit}>Screen</button>
+                            </div>
                         </div>
                     }
 
 
                     { stocks.length === 0 ? null :
-                        <div className="stock-screen">
+                        <div className="stock-search">
                             <h2>Stocks</h2>
                             <StockResult stockData={stocks} />
                         </div>

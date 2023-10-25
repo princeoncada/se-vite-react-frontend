@@ -47,9 +47,11 @@ function Search() {
                                 }}
                             >Search</button>
                         </div>
-                        <h3>Recommended Stocks</h3>
-                        <StockResult stockData={results} />
                     </div>
+                    <StockResult
+                        header="Top Stocks"
+                        stockData={results}
+                    />
                 </main>
             <Footer />
         </>

@@ -28,14 +28,12 @@ function Watchlist() {
         <>
             <Header/>
             <main>
-                <div className="stock-screen">
-                    <h2>Watchlist</h2>
-                    <StockResult
-                        stockData={stockData}
-                        watchlist={true}
-                        loadStockData={loadUserStocks}
-                    />
-                </div>
+                <StockResult
+                    header="Watchlist"
+                    stockData={stockData}
+                    watchlist={true}
+                    loadStockData={loadUserStocks}
+                />
             </main>
             <Footer/>
         </>
