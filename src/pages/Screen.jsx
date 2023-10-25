@@ -6,6 +6,7 @@ import Filter from "../components/Filter.jsx";
 import axios from "axios";
 import StockResult from "../components/StockResult.jsx";
 import header_config from "../service/HeaderConfig.js";
+import {Chip} from "@mui/material";
 
 const filters_config = {
     trailing_pe: {
@@ -71,7 +72,7 @@ const filters_config = {
     operating_cash_flow_net_income_ratio: {
         label: "Operating Cash Flow/Net Income",
         mobile_label: "OCF/NI",
-        state: "operatingCashFlowToNetIncome",
+        state: "operatingCashFlowNetIncomeRatio",
     },
     free_cash_flow_conversion: {
         label: "Free Cash Flow Conversion",
@@ -89,6 +90,7 @@ const checkboxStates = {};
 
 function Screen() {
     const [isLoading, setIsLoading] = useState(true);
+    const [noneChecked, setNoneChecked] = useState(false);
     const [stocks, setStocks] = useState([]);
 
     useEffect(() => {
@@ -110,12 +112,10 @@ function Screen() {
                             checked: true,
                         }
                     })
-
-                    console.log(state)
                     setIsLoading(false)
                 })
                 .catch(error => {
-                    console.log(error)
+                    console.log(`API: ${error}`)
                     setIsLoading(false)
                     window.location.href = "/logout"
                 })
@@ -151,24 +151,33 @@ function Screen() {
     }
 
     function handleSubmit() {
-        const resultFilter = {}
+        const resultFilter = {};
+        const isAnyCheckboxChecked = Object.values(checkboxData).some((value) => value.checked);
+
+        if (!isAnyCheckboxChecked) {
+            setNoneChecked(true);
+            return;
+        } else {
+            setNoneChecked(false);
+        }
+
         Object.entries(checkboxData).forEach(([key, value]) => {
             if (value.checked) {
-                resultFilter[filters_config[key].state] = [filter[key].value[0]-1, filter[key].value[1]+1]
+                resultFilter[filters_config[key].state] = [
+                    filter[key].value[0] - 1,
+                    filter[key].value[1] + 1,
+                ];
             }
-        })
+        });
 
-        console.log(resultFilter)
-
-        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/stock/filter`, resultFilter,  header_config)
-            .then(response => {
-                setStocks(response.data)
-                console.log(response.data)
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/stock/filter`, resultFilter, header_config)
+            .then((response) => {
+                setStocks(response.data);
             })
-            .catch(error => {
-                console.log(error)
+            .catch((error) => {
+                console.log(error);
                 window.location.href = "/logout"
-            })
+            });
     }
 
     return (
@@ -199,16 +208,14 @@ function Screen() {
                             </div>
                             <div className="screen-button-container">
                                 <button className="screen-button" onClick={handleSubmit}>Screen</button>
+                                {noneChecked && <Chip color="error" label="Please include atleast 1 filter."/>}
                             </div>
                         </div>
                     }
 
 
                     { stocks.length === 0 ? null :
-                        <div className="stock-search">
-                            <h2>Stocks</h2>
-                            <StockResult stockData={stocks} />
-                        </div>
+                        <StockResult header="Stocks" stockData={stocks} />
                     }
 
                 </main>

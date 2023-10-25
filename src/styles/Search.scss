@@ -1,4 +1,7 @@
 .stock-search {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     background-color: #f5f5f5;
     padding: 20px;
     border: 1px solid #ddd;
@@ -10,7 +13,6 @@
 h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 0.7rem;
 }
 
 .search-bar {
