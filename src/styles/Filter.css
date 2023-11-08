@@ -1,0 +1,19 @@
+@media screen and (min-width: 769px) {
+  .element.label.mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 769px) {
+  .element.label.desktop {
+    display: none;
+  }
+  .element.label.mobile {
+    min-width: 100px;
+  }
+  .slider {
+    flex: 3;
+    min-width: 100px;
+  }
+}
+
+/*# sourceMappingURL=Filter.css.map */

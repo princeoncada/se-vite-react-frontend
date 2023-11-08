@@ -3,15 +3,19 @@
   flex-direction: column;
   justify-content: center;
   background-color: #f5f5f5;
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  max-width: 1100px;
   margin: 20px;
 }
 .stock-screen h2 {
   text-align: center;
   color: #333;
+}
+.stock-screen .screen-button {
+  font-size: 2rem;
 }
 
 form {
@@ -19,26 +23,37 @@ form {
   flex-direction: column;
 }
 
-.filter {
+.screen-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.filters .filter {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   gap: 20px;
 }
-.filter .label {
+.filters .filter .label {
   display: flex;
   min-width: 275px;
   justify-content: end;
 }
-.filter .element {
+.filters .filter .element {
   display: flex;
   align-items: center;
   flex: 1;
-}
-.filter .slider {
-  flex: 3;
-  min-width: 300px;
 }
 
 label {
@@ -65,6 +80,27 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+@media screen and (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+  .slider {
+    flex: 3;
+    min-width: 172px;
+  }
+  .screen-button {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 769px) {
+  .desktop {
+    display: none;
+  }
+  .screen-button {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=Screen.css.map */

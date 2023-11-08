@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <p>&copy; {new Date().getFullYear()} Your Company Name</p>
+            <p>&copy; 2023 Stock Power</p>
         </footer>
     )
 }

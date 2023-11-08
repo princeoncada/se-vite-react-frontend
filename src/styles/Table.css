@@ -1,14 +1,9 @@
-/* Style for the container of the table */
-.table-container {
-  width: 100%; /* Ensure the container takes up the full width of its parent */
-  height: 100%; /* Ensure the container takes up the full height of its parent */
-  overflow: auto; /* Add scrollbars if the content overflows */
-}
-
 /* Style for the table */
 table {
   width: 100%; /* Make the table occupy the full width of its container */
   border-collapse: collapse; /* Collapse table borders */
+  overflow-wrap: anywhere;
+  scrollbar-gutter: stable;
 }
 
 /* Style for table headers */
@@ -39,6 +34,24 @@ thead th {
 tfoot th {
   background-color: #333; /* Dark gray background for footer row */
   color: white;
+}
+
+@media screen and (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 769px) {
+  .desktop {
+    display: none;
+  }
+  .table {
+    font-size: 10px;
+  }
+  .financial-value {
+    font-size: 8px;
+    font-weight: 600;
+  }
 }
 
 /*# sourceMappingURL=Table.css.map */

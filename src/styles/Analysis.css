@@ -6,13 +6,12 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   margin: 20px;
-  width: 94%;
+  width: 80%;
   min-height: 90%;
 }
 
 .stock-view-container {
   display: flex;
-  flex-direction: row;
   flex: 1;
 }
 
@@ -21,12 +20,7 @@
   flex-direction: column;
   flex: 3;
 }
-.stock-view-container .first .stock-summary {
-  flex: 1;
-  padding: 10px;
-}
 .stock-view-container .first .stock-financial {
-  display: flex;
   flex-direction: column;
   flex: 8;
 }
@@ -80,7 +74,6 @@
 .stock-summary .contents {
   flex: 1;
   display: flex;
-  flex-direction: row;
   gap: 1rem;
   margin: 0 20px;
 }
@@ -91,7 +84,6 @@
   flex: 1;
 }
 .stock-summary .contents .stock-identity .stock-name {
-  display: flex;
   align-items: end;
   flex: 1;
   font-size: 3rem;
@@ -99,21 +91,17 @@
 }
 .stock-summary .contents .stock-identity .stock-ticker {
   flex: 1;
-  font-size: 1.5rem;
   font-weight: 600;
 }
 .stock-summary .contents .stock-price {
   display: flex;
   align-items: center;
-  justify-content: end;
   flex: 0.74;
-  font-size: 4rem;
   font-weight: 600;
 }
 .stock-summary .contents .stock-score {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   flex: 0.5;
   /* Style for the score value */
@@ -141,6 +129,63 @@
   padding-top: 0.5rem;
   text-align: center;
   font-size: 1rem;
+}
+
+@media screen and (min-width: 769px) {
+  .mobile {
+    display: none;
+  }
+  .stock-summary {
+    padding: 10px;
+  }
+  .contents {
+    flex-direction: row;
+  }
+  .stock-summary {
+    flex: 1;
+  }
+  .stock-view-container {
+    flex-direction: row;
+  }
+  .stock-financial {
+    display: flex;
+  }
+  .stock-score {
+    justify-content: space-around;
+  }
+  .stock-name {
+    display: flex;
+  }
+  .stock-price {
+    font-size: 4rem;
+    justify-content: end;
+  }
+  .stock-ticker {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 769px) {
+  .contents {
+    flex-direction: column;
+  }
+  .stock-view-container {
+    flex-direction: column;
+  }
+  .stock-name {
+    display: none;
+  }
+  .stock-score {
+    gap: 10px;
+  }
+  .score-label {
+    display: flex;
+  }
+  .stock-ticker {
+    font-size: 3.8rem;
+  }
+  .stock-price {
+    font-size: 3.4rem;
+  }
 }
 
 /*# sourceMappingURL=Analysis.css.map */

@@ -1,0 +1,44 @@
+header {
+  position: static;
+  top: 0;
+}
+header .nav {
+  display: flex;
+  flex-direction: row;
+}
+header .nav .nav__links {
+  gap: 2%;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  font-size: 1.6rem;
+  padding: 1rem 6rem;
+  width: 100%;
+}
+header .nav .nav__links .nav__link {
+  color: #2f2f2f;
+  transition: 0.3s;
+}
+header .nav .nav__links .nav__link:hover {
+  color: #32a9de;
+}
+header .mobile {
+  display: flex;
+  justify-content: end;
+  height: 4rem;
+}
+
+@media screen and (min-width: 769px) {
+  header .mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 769px) {
+  header .desktop {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=Header.css.map */
